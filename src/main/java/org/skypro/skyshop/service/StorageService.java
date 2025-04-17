@@ -7,6 +7,7 @@ import org.skypro.skyshop.model.product.SimpleProduct;
 import org.springframework.stereotype.Service;
 import org.skypro.skyshop.model.search.Searchable;
 
+import java.util.Optional;
 import java.util.Collection;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +31,10 @@ public class StorageService {
 
     public Collection<Article> getAllArticles() {
         return articleStorage.values();
+    }
+
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(productStorage.get(id));
     }
 
     private void enterData() {
@@ -57,4 +62,6 @@ public class StorageService {
 
         return searchables;
     }
+
+
 }
